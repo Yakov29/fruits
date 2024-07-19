@@ -1,3 +1,7 @@
+body {
+  font-family: Roboto;
+}
+
 ul {
   flex-wrap: wrap;
   gap: 70px;
@@ -6,9 +10,12 @@ ul {
 }
 
 li {
-  text-align: center;
+  border-radius: 50px;
+  flex-direction: column;
+  justify-content: space-between;
   width: 400px;
   padding: 10px;
+  display: flex;
   box-shadow: 3px 5px 10px 8px gray;
 }
 
@@ -16,8 +23,22 @@ img {
   width: 250px;
 }
 
-h2 {
+h2, .item__description {
   text-align: center;
+}
+
+.description__box {
+  flex-direction: column;
+  display: flex;
+}
+
+.item__button {
+  color: #fff;
+  background-color: #1e90ff;
+  border: none;
+  border-radius: 50px;
+  height: 60px;
+  font-size: 30px;
 }
 
 .change {
@@ -27,6 +48,18 @@ h2 {
   background-color: #80808080;
   position: fixed;
   inset: 0;
+}
+
+.item__image {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.button__box {
+  flex-direction: column;
+  gap: 10px;
+  display: flex;
 }
 
 .change__form {
@@ -78,9 +111,11 @@ h2 {
   color: #fff;
   background-color: #008b8b;
   border: none;
-  width: 100px;
-  height: 50px;
+  border-radius: 50px;
+  width: 300px;
+  height: 100px;
   margin: 100px auto;
+  font-size: 30px;
   display: block;
 }
 /*# sourceMappingURL=index.2cdaf7bc.css.map */

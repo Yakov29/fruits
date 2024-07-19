@@ -596,30 +596,20 @@ var _fruitsApi = require("./fruitsApi");
 var _createMarkup = require("./createMarkup");
 const list = document.querySelector(".list");
 const changeForm = document.querySelector(".change__form");
-// const data = await getFruits()
 const renderPage = async ()=>{
     const dataFruits = await (0, _fruitsApi.getFruits)();
     const listFruits = (0, _createMarkup.createElements)(dataFruits);
     list.insertAdjacentHTML("beforeend", listFruits);
-    const addButton = document.querySelector(".addButton");
     const changeButton = document.querySelector(".change__button");
     const openButton = document.querySelector(".openDeleteModal");
-    const addModal = document.querySelector(".addfruitModal");
     const changeBox = document.querySelector(".change");
     const deletefruitModal = document.querySelector(".deleteFruitModal");
-    console.log(changeButton);
-    if (changeButton !== null && changeButton !== undefined) {
-        console.log("test");
-        list.addEventListener("click", (e)=>{
-            if (e.target.classList.contains("change__button")) changeBox.classList.toggle("change__invisible");
-        });
-    }
-    if (openButton !== null && openButton !== undefined) {
-        console.log("tedelest");
-        list.addEventListener("click", (e)=>{
-            if (e.target.classList.contains("openDeleteModal")) deletefruitModal.classList.toggle("change__invisible");
-        });
-    }
+    if (changeButton !== null && changeButton !== undefined) list.addEventListener("click", (e)=>{
+        if (e.target.classList.contains("change__button")) changeBox.classList.toggle("change__invisible");
+    });
+    if (openButton !== null && openButton !== undefined) list.addEventListener("click", (e)=>{
+        if (e.target.classList.contains("openDeleteModal")) deletefruitModal.classList.toggle("change__invisible");
+    });
 };
 renderPage();
 changeForm.addEventListener("submit", (e)=>{
@@ -635,10 +625,6 @@ changeForm.addEventListener("submit", (e)=>{
         price: changePrice,
         photo: changePhoto
     };
-    // const options = {
-    //   method: "PATCH",
-    //   body: JSON.stringify(fruit),
-    // };
     (0, _fruitsApi.changeFruit)(fruit, changeID).then((data)=>{
         renderPage(data);
     }).catch((error)=>{
@@ -694,37 +680,7 @@ const deleteFruit = async (fruitID)=>{
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","axios":"jo6P5"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"jo6P5":[function(require,module,exports) {
+},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>(0, _axiosJsDefault.default));
@@ -1415,7 +1371,37 @@ function bind(fn, thisArg) {
     };
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cpqD8":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"cpqD8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("./../utils.js");
@@ -5430,16 +5416,15 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createElements", ()=>createElements);
 const createElements = (data)=>{
-    console.log(data);
     return data.map((element)=>{
         return `
     <li class="list__item">
       <h2 class="name">${element.name}</h2>
-      <span class="price">${element.price}</span>
-      <span class="id">${element.id}</span>
-      <img src="${element.photo}" alt="image">
-      <button type="button" class="openDeleteModal">\u{412}\u{438}\u{434}\u{430}\u{43B}\u{438}\u{442}\u{438}</button>
-      <button class="change__button" type="button">\u{420}\u{435}\u{434}\u{430}\u{433}\u{443}\u{432}\u{430}\u{442}\u{438}</button>
+      <div class="description__box"><span class="item__description">\u{426}\u{456}\u{43D}\u{430}: ${element.price}</span>
+      <span class="item__description">ID: ${element.id}</span></div>
+      <img class="item__image" src="${element.photo}" alt="image">
+     <div class="button__box"><button type="button" class="item__button openDeleteModal">\u{412}\u{438}\u{434}\u{430}\u{43B}\u{438}\u{442}\u{438}</button>
+      <button class="item__button change__button" type="button">\u{420}\u{435}\u{434}\u{430}\u{433}\u{443}\u{432}\u{430}\u{442}\u{438}</button></div>
     </li>`;
     }).join("");
 };
@@ -5447,20 +5432,10 @@ const createElements = (data)=>{
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Qqds":[function(require,module,exports) {
 var _fruitsApi = require("./fruitsApi");
 const form = document.querySelector(".form");
-const name = document.querySelector(".name");
-const price = document.querySelector(".price");
-const photo = document.querySelector(".photo");
-const buttonAdd = document.querySelector(".submit");
-const buttonChange = document.querySelector(".change");
-const buttonDelete = document.querySelector(".delete");
-const closeAddModal = document.querySelector(".closeAddModal");
-const addfruitModal = document.querySelector("addfruitModal");
 const addButton = document.querySelector(".addButton");
 const addModal = document.querySelector(".addfruitModal");
-console.log(form);
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
-    // console.log(e.target.elements.name.value)
     const fruitID = e.target.elements.fruitID.value;
     const fruitname = e.target.elements.fruitname.value;
     const fruitprice = e.target.elements.fruitprice.value;
