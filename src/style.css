@@ -1,0 +1,100 @@
+ul {
+    list-style: none;
+    display: flex;
+    gap: 70px;
+    flex-wrap: wrap;
+}
+
+li {
+    box-shadow: 3px 5px 10px 8px gray;
+    padding: 10px;
+    text-align: center;
+    width: 400px;
+    
+}
+
+img {
+    width: 250px;
+}
+h2 {
+    text-align: center;
+}
+
+
+.change{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(128, 128, 128, 0.5);
+    backdrop-filter: blur(3px);
+    opacity: 1;
+    z-index: 1;
+}
+
+.change__form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 400px;
+}
+
+.change__invisible{
+    opacity: 0;
+    pointer-events: none;
+    /* display: none; */
+}
+
+.addfruitModal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    background-color: rgba(220, 220, 220, 0.5);
+}
+
+.form{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.deleteFruitModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.5);
+
+}
+
+.deleteForm{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.addButton{
+    width: 100px;
+    height: 50px;
+    background-color: darkcyan;
+    color: white;
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
