@@ -10,7 +10,7 @@ ul {
 }
 
 li {
-  border-radius: 50px;
+  border-radius: 10px;
   flex-direction: column;
   justify-content: space-between;
   width: 400px;
@@ -36,7 +36,7 @@ h2, .item__description {
   color: #fff;
   background-color: #1e90ff;
   border: none;
-  border-radius: 50px;
+  border-radius: 10px;
   height: 60px;
   font-size: 30px;
 }
