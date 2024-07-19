@@ -1,0 +1,86 @@
+ul {
+  flex-wrap: wrap;
+  gap: 70px;
+  list-style: none;
+  display: flex;
+}
+
+li {
+  text-align: center;
+  width: 400px;
+  padding: 10px;
+  box-shadow: 3px 5px 10px 8px gray;
+}
+
+img {
+  width: 250px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.change {
+  backdrop-filter: blur(3px);
+  opacity: 1;
+  z-index: 1;
+  background-color: #80808080;
+  position: fixed;
+  inset: 0;
+}
+
+.change__form {
+  flex-direction: column;
+  gap: 20px;
+  width: 100px;
+  height: 100px;
+  margin-top: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.change__invisible {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.addfruitModal {
+  background-color: #dcdcdc80;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+.form {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.deleteFruitModal {
+  text-align: center;
+  background-color: #80808080;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+.deleteForm {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.addButton {
+  color: #fff;
+  background-color: #008b8b;
+  border: none;
+  width: 100px;
+  height: 50px;
+  margin: 100px auto;
+  display: block;
+}
+/*# sourceMappingURL=index.2cdaf7bc.css.map */
